@@ -1,11 +1,16 @@
 package org.biacode.jdeezer.model
 
+import org.slf4j.LoggerFactory
+
 /**
  * Created by Arthur Asatryan.
  * Date: 11/4/18
  * Time: 6:12 PM
+ *
+ * Contains Deezer specific error messages
  */
-enum class ErrorTypeModel(errorType: String, code: Int) {
+enum class ErrorTypeModel(errorType: String, code: Int) : ErrorModel {
+
     QUOTA("Exception", 4),
     ITEMS_LIMIT_EXCEEDED("Exception", 100),
     PERMISSION("OAuthException", 200),
@@ -17,6 +22,9 @@ enum class ErrorTypeModel(errorType: String, code: Int) {
     DATA_NOT_FOUND("DataException", 800);
 
     companion object {
+
+        private val LOGGER = LoggerFactory.getLogger(ErrorTypeModel::class.java)
+
         /**
          * Gets error type by provided code.
          *
@@ -26,17 +34,19 @@ enum class ErrorTypeModel(errorType: String, code: Int) {
          * ```
          */
         fun getByCode(code: Int): ErrorTypeModel {
+            LOGGER.debug("Getting ErrorTypeModel for code - {}", code)
             return when (code) {
-                1 -> QUOTA
-                100 -> QUOTA
-                200 -> QUOTA
-                300 -> QUOTA
-                500 -> QUOTA
-                501 -> QUOTA
-                600 -> QUOTA
-                700 -> QUOTA
-                800 -> QUOTA
+                4 -> QUOTA
+                100 -> ITEMS_LIMIT_EXCEEDED
+                200 -> PERMISSION
+                300 -> TOKEN_INVALID
+                500 -> PARAMETER
+                501 -> PARAMETER_MISSING
+                600 -> QUERY_INVALID
+                700 -> SERVICE_BUSY
+                800 -> DATA_NOT_FOUND
                 else -> {
+                    LOGGER.error("Can not find ErrorTypeModel for code - {}", code)
                     throw IllegalArgumentException("Can not find ErrorTypeModel for code - $code")
                 }
             }
