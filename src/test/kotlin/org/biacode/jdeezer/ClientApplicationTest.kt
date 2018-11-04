@@ -21,17 +21,17 @@ import java.time.LocalDateTime
 class ClientApplicationTest {
 
     @Test
-    fun `test initialize`() {
+    fun `test logging`() {
         LOGGER.debug("Error message - {}", ErrorTypeModel.getByCode(4))
     }
 
     @Test
     fun `test http client`() {
         val httpclient = HttpClients.createDefault();
-        val httpGet = HttpGet("http://umooder.com/");
+        val httpGet = HttpGet("http://google.com");
         val response = httpclient.execute(httpGet);
         response.use {
-            println(it)
+            LOGGER.debug("Got response - {}", it)
         }
     }
 
