@@ -1,7 +1,7 @@
 package org.biacode.jdeezer.client
 
 import org.assertj.core.api.Assertions.assertThat
-import org.biacode.jdeezer.model.authentication.AuthenticationRequest
+import org.biacode.jdeezer.model.authentication.request.AuthenticationRequest
 import org.biacode.jdeezer.model.common.response.ErrorTypeModel
 import org.junit.Test
 
