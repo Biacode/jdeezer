@@ -8,6 +8,6 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * Time: 10:37 PM
  */
 abstract class AbstractJDeezerAccessTokenAwareRequest(
-    @JsonProperty("access_token")
-    open val accessToken: String
+        @JsonProperty("access_token")
+        open val accessToken: String
 )

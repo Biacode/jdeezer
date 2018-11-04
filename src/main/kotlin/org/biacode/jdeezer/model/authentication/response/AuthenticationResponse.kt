@@ -9,8 +9,8 @@ import org.biacode.jdeezer.model.common.response.ResultResponseModel
  * Time: 9:04 PM
  */
 data class AuthenticationResponse(
-    override val response: AuthenticationResponseModel = AuthenticationResponseModel(
-        null
-    ),
-    override val errors: Set<ErrorTypeModel> = emptySet()
+        override val response: AuthenticationResponseModel = AuthenticationResponseModel(
+                null
+        ),
+        override val errors: Set<ErrorTypeModel> = emptySet()
 ) : ResultResponseModel<AuthenticationResponseModel, ErrorTypeModel>(response, errors)

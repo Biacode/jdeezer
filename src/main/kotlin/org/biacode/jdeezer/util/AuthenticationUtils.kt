@@ -24,9 +24,8 @@ object AuthenticationUtils {
      */
     @JvmOverloads
     fun buildOauthUrl(
-        appId: Int, redirectUri: String, perms: Set<PermissionTypeModel> = setOf(PermissionTypeModel.BASIC_ACCESS)
-    ): String =
-        "${CONNECT_BASE_URL}oauth/auth.php?app_id=$appId&redirect_uri=$redirectUri&perms=${perms.joinToString(",") { it.permissionName }}"
+            appId: Int, redirectUri: String, perms: Set<PermissionTypeModel> = setOf(PermissionTypeModel.BASIC_ACCESS)
+    ): String = "${CONNECT_BASE_URL}oauth/auth.php?app_id=$appId&redirect_uri=$redirectUri&perms=${perms.joinToString(",") { it.permissionName }}"
 
     /**
      * Builds Deezer authentication URL
@@ -41,7 +40,7 @@ object AuthenticationUtils {
      */
     @JvmOverloads
     fun buildAuthenticationUrl(
-        appId: Int, secret: String, code: String, output: String = "json"
+            appId: Int, secret: String, code: String, output: String = "json"
     ): String = "${CONNECT_BASE_URL}oauth/access_token.php?app_id=$appId&secret=$secret&code=$code&output=$output"
 
 }

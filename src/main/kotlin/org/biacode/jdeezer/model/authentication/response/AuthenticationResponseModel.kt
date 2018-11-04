@@ -9,8 +9,8 @@ import org.biacode.jdeezer.model.common.response.ResponseModel
  * Time: 9:04 PM
  */
 data class AuthenticationResponseModel(
-    @JsonProperty("access_token")
-    val accessToken: String? = null,
-    @JsonProperty("expires")
-    val expires: Int? = null
+        @JsonProperty("access_token")
+        val accessToken: String? = null,
+        @JsonProperty("expires")
+        val expires: Int? = null
 ) : ResponseModel

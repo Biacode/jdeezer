@@ -34,24 +34,18 @@ class AuthenticationClient : AbstractJDeezerClient() {
         return Request.Get(authenticationUrl).execute().handleResponse { httpResponse ->
             LOGGER.debug("Successfully got httpResponse - {}", httpResponse)
             Optional.of(httpResponse).filter { it.statusLine.statusCode == 200 }
-                .map {
-                    val authorizationToken = IOUtils.toString(it.entity.content, Charset.defaultCharset())
-                    if (authorizationToken == "wrong code") {
-                        LOGGER.error("Got wrong code - {}", request.code)
-                        AuthenticationResponse(
-                            errors = setOf(
-                                ErrorTypeModel.getByCode(it.statusLine.statusCode)
-                            )
-                        )
-                    } else {
-                        AuthenticationResponse(
-                            objectMapper.readValue(authorizationToken, AuthenticationResponseModel::class.java)
-                        )
+                    .map {
+                        val authorizationToken = IOUtils.toString(it.entity.content, Charset.defaultCharset())
+                        if (authorizationToken == "wrong code") {
+                            LOGGER.error("Got wrong code - {}", request.code)
+                            AuthenticationResponse(errors = setOf(ErrorTypeModel.getByCode(it.statusLine.statusCode)))
+                        } else {
+                            AuthenticationResponse(objectMapper.readValue(authorizationToken, AuthenticationResponseModel::class.java))
+                        }
                     }
-                }
-                .orElseGet {
-                    AuthenticationResponse(errors = setOf(ErrorTypeModel.getByCode(httpResponse.statusLine.statusCode)))
-                }
+                    .orElseGet {
+                        AuthenticationResponse(errors = setOf(ErrorTypeModel.getByCode(httpResponse.statusLine.statusCode)))
+                    }
         }
     }
 
