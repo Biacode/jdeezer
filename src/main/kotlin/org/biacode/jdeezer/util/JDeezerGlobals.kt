@@ -1,4 +1,4 @@
-package org.biacode.jdeezer.client
+package org.biacode.jdeezer.util
 
 /**
  * Created by Arthur Asatryan.
