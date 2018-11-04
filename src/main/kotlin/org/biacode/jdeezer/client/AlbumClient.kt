@@ -4,8 +4,11 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import org.apache.http.client.fluent.Request
 import org.apache.http.client.utils.URIBuilder
 import org.biacode.jdeezer.client.common.AbstractJDeezerClient
+import org.biacode.jdeezer.model.album.AlbumCommentsResponseModel
 import org.biacode.jdeezer.model.album.AlbumResponseModel
+import org.biacode.jdeezer.model.album.request.AlbumCommentRequest
 import org.biacode.jdeezer.model.album.request.AlbumRequest
+import org.biacode.jdeezer.model.album.response.AlbumCommentResponse
 import org.biacode.jdeezer.model.album.response.AlbumResponse
 import org.biacode.jdeezer.util.JDeezerGlobals
 import org.slf4j.LoggerFactory
@@ -34,11 +37,39 @@ class AlbumClient : AbstractJDeezerClient() {
                 .addParameter("limit", request.limit.toString())
         val response = Request.Get(uriBuilder.build()).execute()
         return response.handleResponse { httpResponse ->
+            LOGGER.debug("Successfully got httpResponse - {}", httpResponse)
             val responseAsMap: Map<String, Any> = objectMapper.readValue(httpResponse.entity.content)
             if (responseAsMap.containsKey("error")) {
+                LOGGER.error("Error - {} occurs while processing request - {}", responseAsMap, request)
                 objectMapper.convertValue(responseAsMap, AlbumResponse::class.java)
             } else {
+                LOGGER.debug("Successfully fetch album data - {}", responseAsMap)
                 AlbumResponse(objectMapper.convertValue(responseAsMap, AlbumResponseModel::class.java))
+            }
+        }
+    }
+
+    /**
+     * Fetch album comments data with some pagination defaults to index = 0 and limit = 10
+     *
+     * @param request The album comments request
+     * @return Album comments response or error
+     */
+    fun albumComments(request: AlbumCommentRequest): AlbumCommentResponse {
+        LOGGER.debug("Processing fetch album comments request - {}", request)
+        val uriBuilder = URIBuilder("${JDeezerGlobals.API_BASE_URL}album/${request.albumId}/comments")
+                .addParameter("index", request.index.toString())
+                .addParameter("limit", request.limit.toString())
+        val response = Request.Get(uriBuilder.build()).execute()
+        return response.handleResponse { httpResponse ->
+            LOGGER.debug("Successfully got httpResponse - {}", httpResponse)
+            val responseAsMap: Map<String, Any> = objectMapper.readValue(httpResponse.entity.content)
+            if (responseAsMap.containsKey("error")) {
+                LOGGER.error("Error - {} occurs while processing request - {}", responseAsMap, request)
+                objectMapper.convertValue(responseAsMap, AlbumCommentResponse::class.java)
+            } else {
+                LOGGER.debug("Successfully fetch album data - {}", responseAsMap)
+                AlbumCommentResponse(objectMapper.convertValue(responseAsMap, AlbumCommentsResponseModel::class.java))
             }
         }
     }
