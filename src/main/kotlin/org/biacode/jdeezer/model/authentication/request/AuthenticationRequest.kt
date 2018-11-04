@@ -1,4 +1,4 @@
-package org.biacode.jdeezer.model.authentication
+package org.biacode.jdeezer.model.authentication.request
 
 import org.biacode.jdeezer.model.common.request.AbstractJDeezerRequest
 

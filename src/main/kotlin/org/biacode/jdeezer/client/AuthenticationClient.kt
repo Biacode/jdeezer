@@ -3,9 +3,9 @@ package org.biacode.jdeezer.client
 import org.apache.commons.io.IOUtils
 import org.apache.http.client.fluent.Request
 import org.biacode.jdeezer.client.common.AbstractJDeezerClient
-import org.biacode.jdeezer.model.authentication.AuthenticationRequest
-import org.biacode.jdeezer.model.authentication.AuthenticationResponse
-import org.biacode.jdeezer.model.authentication.AuthenticationResponseModel
+import org.biacode.jdeezer.model.authentication.request.AuthenticationRequest
+import org.biacode.jdeezer.model.authentication.response.AuthenticationResponse
+import org.biacode.jdeezer.model.authentication.response.AuthenticationResponseModel
 import org.biacode.jdeezer.model.common.response.ErrorTypeModel
 import org.biacode.jdeezer.util.AuthenticationUtils.buildAuthenticationUrl
 import org.slf4j.LoggerFactory
@@ -38,14 +38,20 @@ class AuthenticationClient : AbstractJDeezerClient() {
                     val authorizationToken = IOUtils.toString(it.entity.content, Charset.defaultCharset())
                     if (authorizationToken == "wrong code") {
                         LOGGER.error("Got wrong code - {}", request.code)
-                        AuthenticationResponse(errors = setOf(ErrorTypeModel.getByCode(it.statusLine.statusCode)))
+                        AuthenticationResponse(
+                            errors = setOf(
+                                ErrorTypeModel.getByCode(it.statusLine.statusCode)
+                            )
+                        )
                     } else {
                         AuthenticationResponse(
                             objectMapper.readValue(authorizationToken, AuthenticationResponseModel::class.java)
                         )
                     }
                 }
-                .orElseGet { AuthenticationResponse(errors = setOf(ErrorTypeModel.getByCode(httpResponse.statusLine.statusCode))) }
+                .orElseGet {
+                    AuthenticationResponse(errors = setOf(ErrorTypeModel.getByCode(httpResponse.statusLine.statusCode)))
+                }
         }
     }
 
