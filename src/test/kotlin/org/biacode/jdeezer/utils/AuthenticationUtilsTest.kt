@@ -13,16 +13,15 @@ import java.util.*
  */
 class AuthenticationUtilsTest {
 
-    //region Test methods
     @Test
     fun `test buildOauthUrl`() {
         val appId = 7
         val redirectUri = "http://umooder.com/auth/deezer"
         assertThat(AuthenticationUtils.buildOauthUrl(appId, redirectUri)).contains(
-            JDeezerGlobals.CONNECT_BASE_URL,
-            appId.toString(),
-            redirectUri,
-            "basic_access"
+                JDeezerGlobals.CONNECT_BASE_URL,
+                appId.toString(),
+                redirectUri,
+                "basic_access"
         )
     }
 
@@ -32,12 +31,11 @@ class AuthenticationUtilsTest {
         val secret = UUID.randomUUID().toString()
         val code = UUID.randomUUID().toString()
         assertThat(
-            AuthenticationUtils.buildAuthenticationUrl(
-                appId,
-                secret,
-                code
-            )
+                AuthenticationUtils.buildAuthenticationUrl(
+                        appId,
+                        secret,
+                        code
+                )
         ).contains(JDeezerGlobals.CONNECT_BASE_URL, appId.toString(), secret, code)
     }
-    //endregion
 }

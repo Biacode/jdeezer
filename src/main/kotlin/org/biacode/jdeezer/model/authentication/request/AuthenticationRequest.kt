@@ -8,8 +8,8 @@ import org.biacode.jdeezer.model.common.request.AbstractJDeezerRequest
  * Time: 10:37 PM
  */
 data class AuthenticationRequest(
-    val appId: Int,
-    val secret: String,
-    val code: String,
-    val output: String = "json"
+        val appId: Int,
+        val secret: String,
+        val code: String,
+        val output: String = "json"
 ) : AbstractJDeezerRequest()

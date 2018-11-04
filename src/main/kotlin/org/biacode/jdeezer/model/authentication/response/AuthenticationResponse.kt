@@ -1,6 +1,7 @@
 package org.biacode.jdeezer.model.authentication.response
 
-import org.biacode.jdeezer.model.common.response.ErrorTypeModel
+import org.biacode.jdeezer.model.authentication.AuthenticationResponseModel
+import org.biacode.jdeezer.model.common.response.ErrorResponseModel
 import org.biacode.jdeezer.model.common.response.ResultResponseModel
 
 /**
@@ -9,8 +10,6 @@ import org.biacode.jdeezer.model.common.response.ResultResponseModel
  * Time: 9:04 PM
  */
 data class AuthenticationResponse(
-    override val response: AuthenticationResponseModel = AuthenticationResponseModel(
-        null
-    ),
-    override val errors: Set<ErrorTypeModel> = emptySet()
-) : ResultResponseModel<AuthenticationResponseModel, ErrorTypeModel>(response, errors)
+        override val response: AuthenticationResponseModel? = null,
+        override var error: ErrorResponseModel? = null
+) : ResultResponseModel<AuthenticationResponseModel>(response, error)

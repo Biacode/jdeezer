@@ -18,7 +18,7 @@ object JDeezerClientUtils {
      * Default object mapper implementation with enabled java 8 date time and kotlin modules
      */
     fun objectMapper(): ObjectMapper = ObjectMapper()
-        .registerModule(KotlinModule())
-        .registerModule(JavaTimeModule())
-        .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+            .registerModule(KotlinModule())
+            .registerModule(JavaTimeModule())
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
 }

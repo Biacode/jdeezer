@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory
  *
  * Contains Deezer specific error messages
  */
-enum class ErrorTypeModel(val errorType: String, val code: Int) : ErrorModel {
+enum class ErrorTypeModel(val errorType: String, val code: Int) {
 
     QUOTA("Exception", 4),
     ITEMS_LIMIT_EXCEEDED("Exception", 100),
