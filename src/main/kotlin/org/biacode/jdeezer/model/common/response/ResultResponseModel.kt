@@ -5,9 +5,9 @@ package org.biacode.jdeezer.model.common.response
  * Date: 11/4/18
  * Time: 9:12 PM
  */
-abstract class ResultResponseModel<T : ResponseModel, E : ErrorModel>(
-        open val response: T,
-        open val errors: Set<E> = emptySet()
+abstract class ResultResponseModel<T : ResponseModel>(
+        open val response: T? = null,
+        open var error: ErrorResponseModel? = null
 ) {
-    fun hasErrors(): Boolean = errors.isNotEmpty()
+    fun hasError(): Boolean = error != null
 }

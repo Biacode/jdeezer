@@ -13,7 +13,6 @@ import java.util.*
  */
 class AuthenticationUtilsTest {
 
-    //region Test methods
     @Test
     fun `test buildOauthUrl`() {
         val appId = 7
@@ -39,5 +38,4 @@ class AuthenticationUtilsTest {
                 )
         ).contains(JDeezerGlobals.CONNECT_BASE_URL, appId.toString(), secret, code)
     }
-    //endregion
 }

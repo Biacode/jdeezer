@@ -1,4 +1,4 @@
-package org.biacode.jdeezer.model.authentication.response
+package org.biacode.jdeezer.model.authentication
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.biacode.jdeezer.model.common.response.ResponseModel

@@ -12,7 +12,6 @@ import org.junit.Test
  */
 class AuthenticationClientTest {
 
-    //region Test methods
     @Test
     fun `test authenticate`() {
         val authenticationResponse = AuthenticationClient()
@@ -24,7 +23,6 @@ class AuthenticationClientTest {
                                 "json"
                         )
                 )
-        assertThat(authenticationResponse.errors).contains(ErrorTypeModel.PERMISSION)
+        assertThat(authenticationResponse.error!!.code).isEqualTo(ErrorTypeModel.PERMISSION.code)
     }
-    //endregion
 }
