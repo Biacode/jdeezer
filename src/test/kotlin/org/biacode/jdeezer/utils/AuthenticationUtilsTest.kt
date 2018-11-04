@@ -27,12 +27,12 @@ class AuthenticationUtilsTest {
     }
 
     @Test
-    fun `test buildAuthenticateUrl`() {
+    fun `test buildAuthenticationUrl`() {
         val appId = 7
         val secret = UUID.randomUUID().toString()
         val code = UUID.randomUUID().toString()
         assertThat(
-            AuthenticationUtils.buildAuthenticateUrl(
+            AuthenticationUtils.buildAuthenticationUrl(
                 appId,
                 secret,
                 code

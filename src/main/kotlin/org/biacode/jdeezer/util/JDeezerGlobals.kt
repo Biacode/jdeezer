@@ -4,6 +4,8 @@ package org.biacode.jdeezer.util
  * Created by Arthur Asatryan.
  * Date: 11/4/18
  * Time: 6:10 PM
+ *
+ * Stores Deezer constant global properties
  */
 object JDeezerGlobals {
     /**

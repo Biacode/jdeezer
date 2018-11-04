@@ -1,4 +1,4 @@
-package org.biacode.jdeezer.model
+package org.biacode.jdeezer.model.common.response
 
 /**
  * Created by Arthur Asatryan.
