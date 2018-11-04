@@ -1,4 +1,4 @@
-package org.biacode.jdeezer.model
+package org.biacode.jdeezer.model.common.response
 
 import org.slf4j.LoggerFactory
 
@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory
  *
  * Contains Deezer specific error messages
  */
-enum class ErrorTypeModel(errorType: String, code: Int) : ErrorModel {
+enum class ErrorTypeModel(val errorType: String, val code: Int) : ErrorModel {
 
     QUOTA("Exception", 4),
     ITEMS_LIMIT_EXCEEDED("Exception", 100),

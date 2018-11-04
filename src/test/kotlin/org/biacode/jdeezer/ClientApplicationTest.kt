@@ -7,7 +7,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.impl.client.HttpClients
 import org.assertj.core.api.Assertions.assertThat
-import org.biacode.jdeezer.model.ErrorTypeModel
+import org.biacode.jdeezer.model.common.response.ErrorTypeModel
 import org.junit.Test
 import org.slf4j.LoggerFactory
 import java.time.LocalDateTime

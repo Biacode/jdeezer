@@ -1,6 +1,6 @@
 package org.biacode.jdeezer.util
 
-import org.biacode.jdeezer.model.PermissionTypeModel
+import org.biacode.jdeezer.model.common.request.PermissionTypeModel
 import org.biacode.jdeezer.util.JDeezerGlobals.CONNECT_BASE_URL
 
 /**
@@ -8,7 +8,7 @@ import org.biacode.jdeezer.util.JDeezerGlobals.CONNECT_BASE_URL
  * Date: 11/4/18
  * Time: 8:13 PM
  *
- * Authentication client provides utilities to authenticate/authorize in Deezer
+ * Provides utilities to authenticate/authorize in Deezer
  */
 object AuthenticationUtils {
 
@@ -24,9 +24,7 @@ object AuthenticationUtils {
      */
     @JvmOverloads
     fun buildOauthUrl(
-        appId: Int,
-        redirectUri: String,
-        perms: Set<PermissionTypeModel> = setOf(PermissionTypeModel.BASIC_ACCESS)
+        appId: Int, redirectUri: String, perms: Set<PermissionTypeModel> = setOf(PermissionTypeModel.BASIC_ACCESS)
     ): String =
         "${CONNECT_BASE_URL}oauth/auth.php?app_id=$appId&redirect_uri=$redirectUri&perms=${perms.joinToString(",") { it.permissionName }}"
 
@@ -42,11 +40,8 @@ object AuthenticationUtils {
      * @return Authentication URL
      */
     @JvmOverloads
-    fun buildAuthenticateUrl(
-        appId: Int,
-        secret: String,
-        code: String,
-        output: String = "json"
+    fun buildAuthenticationUrl(
+        appId: Int, secret: String, code: String, output: String = "json"
     ): String = "${CONNECT_BASE_URL}oauth/access_token.php?app_id=$appId&secret=$secret&code=$code&output=$output"
 
 }
