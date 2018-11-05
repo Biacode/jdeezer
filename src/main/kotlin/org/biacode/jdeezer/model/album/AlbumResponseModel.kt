@@ -10,41 +10,41 @@ import java.time.LocalDate
  * Time: 12:27 AM
  */
 data class AlbumResponseModel(
-        val id: Int? = null,
-        val title: String? = null,
-        val upc: String? = null,
-        val link: String? = null,
-        val share: String? = null,
-        val cover: String? = null,
+        val id: Long,
+        val title: String,
+        val upc: String,
+        val link: String,
+        val share: String,
+        val cover: String,
         @JsonProperty("cover_small")
-        val coverSmall: String? = null,
+        val coverSmall: String,
         @JsonProperty("cover_medium")
-        val coverMedium: String? = null,
+        val coverMedium: String,
         @JsonProperty("cover_big")
-        val coverBig: String? = null,
+        val coverBig: String,
         @JsonProperty("cover_xl")
-        val coverXl: String? = null,
+        val coverXl: String,
         @JsonProperty("genre_id")
-        val genreId: Int? = null,
-        val genres: Object? = null, //todo,
-        val label: String? = null,
+        val genreId: Int,
+        val genres: AlbumGenreDataModel,
+        val label: String,
         @JsonProperty("nb_tracks")
-        val nbTracks: Int? = null,
-        val duration: Int? = null,
-        val fans: Int? = null,
-        val rating: Int? = null,
+        val nbTracks: Int,
+        val duration: Int,
+        val fans: Int,
+        val rating: Int,
         @JsonProperty("release_date")
-        val releaseDate: LocalDate? = null,
+        val releaseDate: LocalDate,
         @JsonProperty("record_type")
-        val recordType: String? = null,
-        val available: Boolean? = null,
-        val alternative: Object? = null, //todo
+        val recordType: String,
+        val available: Boolean,
+        val alternative: Any? = null, //todo There is no documentation about this property
         @JsonProperty("tracklist")
-        val trackList: String? = null,
+        val trackList: String,
         @JsonProperty("explicit_lyrics")
-        val explicitLyrics: Boolean? = null,
-        val contributors: List<Object>? = null, //todo
-        val artist: Object? = null, //todo
-        val type: String? = null,
-        val tracks: Object? = null //todo
+        val explicitLyrics: Boolean,
+        val contributors: List<AlbumContributorModel>,
+        val artist: AlbumArtistModel,
+        val type: String,
+        val tracks: AlbumTrackDataModel
 ) : ResponseModel

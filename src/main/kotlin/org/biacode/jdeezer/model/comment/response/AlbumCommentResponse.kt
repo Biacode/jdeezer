@@ -1,6 +1,6 @@
-package org.biacode.jdeezer.model.album.response
+package org.biacode.jdeezer.model.comment.response
 
-import org.biacode.jdeezer.model.album.AlbumCommentsResponseModel
+import org.biacode.jdeezer.model.comment.AlbumCommentsResponseModel
 import org.biacode.jdeezer.model.common.response.ErrorResponseModel
 import org.biacode.jdeezer.model.common.response.ResultResponseModel
 
