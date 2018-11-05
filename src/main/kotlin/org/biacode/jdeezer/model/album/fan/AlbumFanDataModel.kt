@@ -1,13 +1,13 @@
-package org.biacode.jdeezer.model.comment
+package org.biacode.jdeezer.model.album.fan
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * Created by Arthur Asatryan.
- * Date: 11/5/18
- * Time: 1:44 AM
+ * Date: 11/6/18
+ * Time: 2:15 AM
  */
-data class AlbumCommentAuthorModel(
+data class AlbumFanDataModel(
         val id: Long,
         val name: String,
         val link: String,
