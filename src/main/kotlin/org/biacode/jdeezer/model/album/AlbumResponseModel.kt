@@ -26,7 +26,7 @@ data class AlbumResponseModel(
         val coverXl: String? = null,
         @JsonProperty("genre_id")
         val genreId: Int? = null,
-        val genres: Object? = null, //todo,
+        val genres: Any? = null, //todo,
         val label: String? = null,
         @JsonProperty("nb_tracks")
         val nbTracks: Int? = null,
@@ -38,13 +38,13 @@ data class AlbumResponseModel(
         @JsonProperty("record_type")
         val recordType: String? = null,
         val available: Boolean? = null,
-        val alternative: Object? = null, //todo
+        val alternative: Any? = null, //todo
         @JsonProperty("tracklist")
         val trackList: String? = null,
         @JsonProperty("explicit_lyrics")
         val explicitLyrics: Boolean? = null,
-        val contributors: List<Object>? = null, //todo
-        val artist: Object? = null, //todo
+        val contributors: List<Any>? = null, //todo
+        val artist: Any? = null, //todo
         val type: String? = null,
-        val tracks: Object? = null //todo
+        val tracks: Any? = null //todo
 ) : ResponseModel
