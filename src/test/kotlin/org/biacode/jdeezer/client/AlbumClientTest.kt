@@ -20,13 +20,13 @@ class AlbumClientTest {
     }
 
     @Test
-    fun `test album comments`() {
+    fun `test comments`() {
         val albumCommentsResponse = AlbumClient().comments(AlbumCommentRequest(302127))
         assertThat(albumCommentsResponse.hasError()).isFalse()
     }
 
     @Test
-    fun `test album fans`() {
+    fun `test fans`() {
         val albumFansResponse = AlbumClient().fans(AlbumFansRequest(302127))
         assertThat(albumFansResponse.hasError()).isFalse()
     }
