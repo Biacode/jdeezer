@@ -1,4 +1,4 @@
-package org.biacode.jdeezer.model.album.request
+package org.biacode.jdeezer.model.album.comment.request
 
 import org.biacode.jdeezer.model.common.request.AbstractJDeezerPaginationAwareRequest
 

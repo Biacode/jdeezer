@@ -1,7 +1,7 @@
 package org.biacode.jdeezer.client
 
 import org.assertj.core.api.Assertions.assertThat
-import org.biacode.jdeezer.model.album.request.AlbumCommentRequest
+import org.biacode.jdeezer.model.album.comment.request.AlbumCommentRequest
 import org.biacode.jdeezer.model.album.request.AlbumRequest
 import org.junit.Test
 

@@ -4,11 +4,11 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import org.apache.http.client.fluent.Request
 import org.apache.http.client.utils.URIBuilder
 import org.biacode.jdeezer.client.common.AbstractJDeezerClient
-import org.biacode.jdeezer.model.album.AlbumCommentsResponseModel
 import org.biacode.jdeezer.model.album.AlbumResponseModel
-import org.biacode.jdeezer.model.album.request.AlbumCommentRequest
+import org.biacode.jdeezer.model.album.comment.AlbumCommentsResponseModel
+import org.biacode.jdeezer.model.album.comment.request.AlbumCommentRequest
+import org.biacode.jdeezer.model.album.comment.response.AlbumCommentResponse
 import org.biacode.jdeezer.model.album.request.AlbumRequest
-import org.biacode.jdeezer.model.album.response.AlbumCommentResponse
 import org.biacode.jdeezer.model.album.response.AlbumResponse
 import org.biacode.jdeezer.util.JDeezerGlobals
 import org.slf4j.LoggerFactory
