@@ -1,4 +1,4 @@
-package org.biacode.jdeezer.model.album.comment
+package org.biacode.jdeezer.model.comment
 
 /**
  * Created by Arthur Asatryan.

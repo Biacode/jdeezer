@@ -1,8 +1,8 @@
-package org.biacode.jdeezer.model.album.fan.response
+package org.biacode.jdeezer.model.fan.response
 
-import org.biacode.jdeezer.model.album.fan.AlbumFansResponseModel
 import org.biacode.jdeezer.model.common.response.ErrorResponseModel
 import org.biacode.jdeezer.model.common.response.ResultResponseModel
+import org.biacode.jdeezer.model.fan.AlbumFansResponseModel
 
 /**
  * Created by Arthur Asatryan.

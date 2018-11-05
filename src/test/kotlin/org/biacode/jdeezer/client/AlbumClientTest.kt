@@ -1,9 +1,9 @@
 package org.biacode.jdeezer.client
 
 import org.assertj.core.api.Assertions.assertThat
-import org.biacode.jdeezer.model.album.comment.request.AlbumCommentRequest
-import org.biacode.jdeezer.model.album.fan.request.AlbumFansRequest
 import org.biacode.jdeezer.model.album.request.AlbumRequest
+import org.biacode.jdeezer.model.comment.request.AlbumCommentRequest
+import org.biacode.jdeezer.model.fan.request.AlbumFansRequest
 import org.junit.Test
 
 /**
@@ -21,13 +21,13 @@ class AlbumClientTest {
 
     @Test
     fun `test album comments`() {
-        val albumCommentsResponse = AlbumClient().albumComments(AlbumCommentRequest(302127))
+        val albumCommentsResponse = AlbumClient().comments(AlbumCommentRequest(302127))
         assertThat(albumCommentsResponse.hasError()).isFalse()
     }
 
     @Test
     fun `test album fans`() {
-        val albumFansResponse = AlbumClient().albumFans(AlbumFansRequest(302127))
+        val albumFansResponse = AlbumClient().fans(AlbumFansRequest(302127))
         assertThat(albumFansResponse.hasError()).isFalse()
     }
 }

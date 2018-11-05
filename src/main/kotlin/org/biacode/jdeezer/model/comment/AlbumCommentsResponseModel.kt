@@ -1,4 +1,4 @@
-package org.biacode.jdeezer.model.album.comment
+package org.biacode.jdeezer.model.comment
 
 import org.biacode.jdeezer.model.common.response.ResponseModel
 

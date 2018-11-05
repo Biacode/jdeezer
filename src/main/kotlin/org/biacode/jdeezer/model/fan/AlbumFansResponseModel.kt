@@ -1,4 +1,4 @@
-package org.biacode.jdeezer.model.album.fan
+package org.biacode.jdeezer.model.fan
 
 import org.biacode.jdeezer.model.common.response.ResponseModel
 

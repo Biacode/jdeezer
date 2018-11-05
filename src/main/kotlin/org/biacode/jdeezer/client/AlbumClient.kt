@@ -5,14 +5,14 @@ import org.apache.http.client.fluent.Request
 import org.apache.http.client.utils.URIBuilder
 import org.biacode.jdeezer.client.common.AbstractJDeezerClient
 import org.biacode.jdeezer.model.album.AlbumResponseModel
-import org.biacode.jdeezer.model.album.comment.AlbumCommentsResponseModel
-import org.biacode.jdeezer.model.album.comment.request.AlbumCommentRequest
-import org.biacode.jdeezer.model.album.comment.response.AlbumCommentResponse
-import org.biacode.jdeezer.model.album.fan.AlbumFansResponseModel
-import org.biacode.jdeezer.model.album.fan.request.AlbumFansRequest
-import org.biacode.jdeezer.model.album.fan.response.AlbumFansResponse
 import org.biacode.jdeezer.model.album.request.AlbumRequest
 import org.biacode.jdeezer.model.album.response.AlbumResponse
+import org.biacode.jdeezer.model.comment.AlbumCommentsResponseModel
+import org.biacode.jdeezer.model.comment.request.AlbumCommentRequest
+import org.biacode.jdeezer.model.comment.response.AlbumCommentResponse
+import org.biacode.jdeezer.model.fan.AlbumFansResponseModel
+import org.biacode.jdeezer.model.fan.request.AlbumFansRequest
+import org.biacode.jdeezer.model.fan.response.AlbumFansResponse
 import org.biacode.jdeezer.util.JDeezerGlobals
 import org.slf4j.LoggerFactory
 
@@ -58,7 +58,7 @@ class AlbumClient : AbstractJDeezerClient() {
      * @param request The album comments request
      * @return Album comments response or error
      */
-    fun albumComments(request: AlbumCommentRequest): AlbumCommentResponse {
+    fun comments(request: AlbumCommentRequest): AlbumCommentResponse {
         LOGGER.debug("Processing fetch album comments request - {}", request)
         val uriBuilder = URIBuilder("${JDeezerGlobals.API_BASE_URL}album/${request.albumId}/comments")
                 .addParameter("index", request.index.toString())
@@ -78,12 +78,12 @@ class AlbumClient : AbstractJDeezerClient() {
     }
 
     /**
-     * Fetch album comments data with some pagination defaults to index = 0 and limit = 10
+     * Fetch album fans data with some pagination defaults to index = 0 and limit = 10
      *
-     * @param request The album comments request
-     * @return Album comments response or error
+     * @param request The album fans request
+     * @return Album fans response or error
      */
-    fun albumFans(request: AlbumFansRequest): AlbumFansResponse {
+    fun fans(request: AlbumFansRequest): AlbumFansResponse {
         LOGGER.debug("Processing fetch album fans request - {}", request)
         val uriBuilder = URIBuilder("${JDeezerGlobals.API_BASE_URL}album/${request.albumId}/fans")
                 .addParameter("index", request.index.toString())
