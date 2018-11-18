@@ -3,7 +3,7 @@ buildscript {
         platformGroup = 'org.biacode.jdeezer'
         platformVersion = '0.1.0-SNAPSHOT'
 
-        kotlinVersion = '1.3.0'
+        kotlinVersion = '1.3.10'
         commonsIoVersion = '2.6'
         jacksonVersion = "2.9.7"
         apacheHttpComponentsVersion = "4.5.6"
